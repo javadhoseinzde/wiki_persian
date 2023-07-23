@@ -18,6 +18,8 @@ LOCAL_APPS = [
     'wiki_persian.common.apps.CommonConfig',
     'wiki_persian.users.apps.UsersConfig',
     'wiki_persian.authentication.apps.AuthenticationConfig',
+    'wiki_persian.blog.apps.BlogConfig',
+
 ]
 
 THIRD_PARTY_APPS = [
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "wiki_persian/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

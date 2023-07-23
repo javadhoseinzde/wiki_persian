@@ -14,4 +14,5 @@ urlpatterns = [
     path("redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
     path('admin/', admin.site.urls),
     path('api/', include(('wiki_persian.api.urls', 'api'))),
+    path("Article/",include("wiki_persian.blog.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

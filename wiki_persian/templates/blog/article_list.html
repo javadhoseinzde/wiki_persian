@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+    <div class="row">
+        {% for Article in object_list.Article %}
+        <div class="col-4">
+            <div class="card mb-3 mt-5" style="max-width: 500px;">
+                <div class="row g-0">
+
+                <div class="col-md-4">
+
+                    <a href="{% url 'blog:detail' Article.slug %}">   <img src="{{ Article.thumbnail.url }}" class="img-fluid rounded-start" alt="{{Article.picture_alt}}"> </a>
+                </div>
+                <div class="col-md-8">
+                    <a href="{% url 'blog:detail' Article.slug %}">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ Article.title }}</h5>
+                    <p class="card-text">{{Article.desctiption}}</p>
+                    <p class="card-text"><small class="text-body-secondary">{{Article.updated_at}}</small></p>
+                    </div>
+                </a>
+                </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<!-- {% for i in object_list.cat %}
+    {{i.title}}
+{% endfor %}
+
+
+{% endblock %} -->
