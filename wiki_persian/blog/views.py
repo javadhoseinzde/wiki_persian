@@ -15,10 +15,20 @@ class ArticleList(ListView):
 	def get_queryset(self) -> QuerySet[Any]:
 		queryset = {
 			"Article": get_article,
-			"cat": Category.objects.all()
 		}
 		return queryset
 	
 
 
 
+
+class ArticleDetail(DetailView):
+    template_name = "blog/article_detail.html"
+    
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        queryset = {
+            "detail":get_object_or_404(Article.objects.published(), slug=slug),
+        }
+
+        return queryset
