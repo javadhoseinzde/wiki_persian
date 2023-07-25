@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 def get_article():
 	return Article.objects.published()
 
+
 class ArticleList(ListView):
 	# queryset = Article.objects.published()
 	# paginate_by = 10

@@ -50,3 +50,4 @@ class Article(BaseModel):
 	class Meta:
 		verbose_name = "مقاله"
 		verbose_name_plural = "مقاله ها"
+

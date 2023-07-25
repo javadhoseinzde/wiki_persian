@@ -45,6 +45,8 @@ class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    is_sepecial_month = models.BooleanField(default=False)
+    is_sepecial_yeaer = models.BooleanField(default=False)
 
     objects = BaseUserManager()
 
@@ -55,6 +57,7 @@ class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     def is_staff(self):
         return self.is_admin
+
 
 
 class Profile(models.Model):
