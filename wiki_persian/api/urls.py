@@ -1,5 +1,5 @@
 from django.urls import path, include
 
 urlpatterns = [
-    path('blog/', include(('wiki_persian.blog.apis.urls', 'blog')))
+    path('blog/', include(('wiki_persian.blog.apis.urls', 'blog'))),
 ]

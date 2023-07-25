@@ -45,8 +45,7 @@ class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    is_sepecial_month = models.BooleanField(default=False)
-    is_sepecial_yeaer = models.BooleanField(default=False)
+    is_special_month = models.BooleanField(default=False)
 
     objects = BaseUserManager()
 
@@ -65,6 +64,7 @@ class Profile(models.Model):
     posts_count = models.PositiveIntegerField(default=0)
     subscriber_count = models.PositiveIntegerField(default=0)
     subscription_count = models.PositiveIntegerField(default=0)
+    post_status = models.BooleanField(default=True)
     bio = models.CharField(max_length=1000, null=True, blank=True)
 
     def __str__(self):

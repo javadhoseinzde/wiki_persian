@@ -8,6 +8,7 @@ from drf_spectacular.utils import extend_schema
 from wiki_persian.blog.selectors.get_posts import get_articles, get_article
 from wiki_persian.blog.services.create_article import create_article
 
+
 # this class for serializer data
 class Serializers(serializers.ModelSerializer):
     class Meta:

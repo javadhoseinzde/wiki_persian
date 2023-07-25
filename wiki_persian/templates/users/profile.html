@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    {{user.email}}
+{% if  object.is_sepecial_month == True  %}
+    <p>اکانت شما از نوع اکانت ویژه است</p>
+{% else %}
+<p>
+اکانت شما از نوع اکانت های عادی است برای بارگذاری بیش از یک پست و امکانات بیشتر برای دیده شدن اکانت شما بر روی خرید اکانت ویژه کلیک کنید
+</p>
+<form method="post" action="{% url 'users:update_permission' %}">
+    {% csrf_token %}
+    <input type="hidden" name="special_month" id="special_month" value="True">
+<button type="submit" class="btn btn-primary">تبدیل اکانت به اکانت ویژه 500,00 تومان</button>
+
+</form>
+
+{% endif %}
+
+</div>   
+{% endblock %}

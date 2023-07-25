@@ -2,7 +2,7 @@ from django.db import transaction
 from .models import BaseUser, Profile
 
 
-def create_profile(*, user:BaseUser, bio:str | None) -> Profile:
+def create_profile(*, user:BaseUser, bio:str) -> Profile:
     return Profile.objects.create(user=user, bio=bio)
 
 def create_user(*, email:str, password:str) -> BaseUser:
@@ -10,7 +10,7 @@ def create_user(*, email:str, password:str) -> BaseUser:
 
 
 @transaction.atomic
-def register(*, bio:str|None, email:str, password:str) -> BaseUser:
+def register(*, bio:str, email:str, password:str) -> BaseUser:
 
     user = create_user(email=email, password=password)
     create_profile(user=user, bio=bio)

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- <form method="POST">
+    {% csrf_token %}
+    {{form}}
+<button type="submit" class="btn btn-primary">Primary</button>
+</form> -->
+<div class="container">
+    <div class="card p-5 mt-5">
+        <form method="post">
+                {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ایمیل</label>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">رمز</label>
+                <input type="password" name="password1" class="form-control" id="password1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">تکرار رمز</label>
+                <input type="password1" name="password2" class="form-control" id="password2">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
