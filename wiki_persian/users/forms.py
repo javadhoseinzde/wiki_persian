@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 from .models import BaseUser
-from .validators import number_validator, letter_validator, special_char_validator
 
 class RegistrationForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput)
