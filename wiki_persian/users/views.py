@@ -24,19 +24,6 @@ class RegisterView(FormView):
 
         return super(RegisterView, self).form_valid(form)
     
-    
-# def login_requireds(request):
-#     """
-#     Decorator for views that checks that the user is logged in, redirecting
-#     to the log-in page if necessary.
-#     """
-#     # print(request.user)
-#     if request.user.is_active:
-#     # if BaseUser.is_special_month == True:
-#         return True 
-#     else:
-#         print("error")
-
 
 class ProfileView(DetailView):
     model = Profile
@@ -50,11 +37,7 @@ class ProfileView(DetailView):
         context = super().get_context_data(**kwargs)
         return context
     
-
-
 # i think this section need payment to change status
-
-
 class UpdatePermissions(View):
     def post(self,request):
         special_month = request.POST.get("special_month")
