@@ -17,8 +17,8 @@
 9 - امکان فالو کردن()<br>
 10 - امکان پست های کلوز فرند()<br>
 
-## cookiecutter
-من در این پروژه از cookiecutter زیر استفاده کردم<br>
+## کوکی کاتر
+من در این پروژه از کوکی کاتر زیر استفاده کردم<br>
 <a>https://github.com/HackSoftware/Django-Styleguide</a>
 
 ## طریقه استفاده
