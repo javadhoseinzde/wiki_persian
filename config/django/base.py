@@ -19,6 +19,8 @@ LOCAL_APPS = [
     'wiki_persian.users.apps.UsersConfig',
     'wiki_persian.authentication.apps.AuthenticationConfig',
     'wiki_persian.blog.apps.BlogConfig',
+    'wiki_persian.tasks.apps.TasksConfig',
+
 
 ]
 
