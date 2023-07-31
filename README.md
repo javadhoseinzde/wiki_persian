@@ -60,16 +60,13 @@ python manage.py runserver
 ```
 
 8- با کامند های زیر سلری را ران کنید
-‍‍‍
 ‍‍‍```
 celery -A wiki_persian.tasks worker -l info --without-gossip --without-mingle --without-heartbeat
 ```
 
 
 9- با کامند های زیر سلری بیت را ران کنید
-‍‍‍
 ‍‍‍```
 celery -A wiki_persian.tasks beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
-
 ```
 
