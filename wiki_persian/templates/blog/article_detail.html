@@ -3,11 +3,25 @@
 {% block content %}
 <div class="container">
 <div class="card mt-4 p-5">
+    {% if request.user == object.detail.user %}
+        <div class="row">
+            <div class="col-6">
+                <a href="{% url 'blog:update' object.detail.slug %}">
+                    <button type="button" class="btn btn-primary" style="background-color: #524FB3;">ویرایش</button>
 
+                </a>
+            </div>
+            <div class="col-6">
+                <a href="{% url 'blog:delete' object.detail.slug %}">
+                    <button type="button" class="btn btn-primary" style="background-color: #524FB3;">حذف</button>
+                </a>
+            </div>
+        </div>
+
+    {% endif %}
     <p class="fs-3 text-muted">{{ object.detail.title }}</p>
     <img src="{{ object.detail.thumbnail.url }}">
     <p class="lead text-start">{{ object.detail.desctiption }}</p>
 </div>
 </div>
-
 {% endblock %}

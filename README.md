@@ -10,7 +10,7 @@
 2 - امکان لاگین()<br>
 3 - امکان ساخت یوزر (*)<br>
 4 - امکان ساخت مقاله(*)<br>
-5 - امکان اپدیت و حذف مقاله()<br>
+5 - امکان اپدیت و حذف مقاله(*)<br>
 6 - امکان کامنت گذاشتن()<br>
 7 - امکان لایک و ریپورت مقاله()<br>
 8 - مشاهده بیشترین بازدید()<br>
@@ -57,5 +57,19 @@ python manage.py migrate
 7- با کامند زیر پروژه را ران کنید
 ```
 python manage.py runserver
+```
+
+8- با کامند های زیر سلری را ران کنید
+‍‍‍
+‍‍‍```
+celery -A wiki_persian.tasks worker -l info --without-gossip --without-mingle --without-heartbeat
+```
+
+
+9- با کامند های زیر سلری بیت را ران کنید
+‍‍‍
+‍‍‍```
+celery -A wiki_persian.tasks beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
 ```
 

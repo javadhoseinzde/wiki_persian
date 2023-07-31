@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} حذف مقاله {% endblock %}
+
+{% block title-safhe %} حذف مقاله {% endblock %}
+{% block content %}
+<div class="col-md-8 text-center  mx-auto mt-4">
+    <!-- general form elements -->
+    <div class="card card-danger">
+        <div class="card-header">
+            <h3 class="card-title mb-0 float-left">{% block title-meta %}حذف مقاله {% endblock %}</h3>
+        </div>
+        
+        <form method="post">{% csrf_token %}
+            <div class="card-body">
+
+            <p>ایا مطمئن هستید که میخاهید مقاله"{{ object }}" را حذف کنید?</p>
+            {{ form }}
+            <input type="submit" value="حذف">
+            </div>
+        </form>
+  </div>
+</div>
+{% endblock %}
