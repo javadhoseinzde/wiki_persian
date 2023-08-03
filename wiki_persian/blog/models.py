@@ -58,3 +58,23 @@ class Article(BaseModel):
 		verbose_name = "مقاله"
 		verbose_name_plural = "مقاله ها"
 
+
+
+class ArticleReaction(BaseModel):
+	REPORT_CHOICE = (
+		(1, 'محتوای مناسبی ندارن و از تصاویر نامناسب با هر گروه سنی استفاده شده'),
+		(2, "از کلمات رکیک استفاده کرده"),		 
+		(3, "از حرف های سیاسی استفاده شده"),	 # investigation
+	)
+	
+	article = models.ForeignKey(Article, on_delete=models.CASCADE)
+	user = models.ForeignKey(BaseUser, on_delete=models.CASCADE)
+	like = models.PositiveIntegerField(default=0)
+	report = models.PositiveIntegerField(null=True, choices=REPORT_CHOICE)
+	
+	def __str__(self):
+		return self.article.title +" "+ self.user.email
+	
+	class Meta:
+		verbose_name = 'واکنش'
+		verbose_name_plural = 'واکنش ها'

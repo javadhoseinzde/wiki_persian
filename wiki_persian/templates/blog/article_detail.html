@@ -3,12 +3,18 @@
 {% block content %}
 <div class="container">
 <div class="card mt-4 p-5">
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
     {% if request.user == object.detail.user %}
         <div class="row">
             <div class="col-6">
                 <a href="{% url 'blog:update' object.detail.slug %}">
                     <button type="button" class="btn btn-primary" style="background-color: #524FB3;">ویرایش</button>
-
                 </a>
             </div>
             <div class="col-6">
@@ -22,6 +28,48 @@
     <p class="fs-3 text-muted">{{ object.detail.title }}</p>
     <img src="{{ object.detail.thumbnail.url }}">
     <p class="lead text-start">{{ object.detail.desctiption }}</p>
+
+    <div class="row">
+        <div class="col-6">
+            <form method="POST" action="{% url 'blog:like' object.detail.id %}">
+                {% csrf_token %}
+
+                {% if object.like == True %}
+                <p class="fs-3">لایک شده</p>
+                {% else %}
+                <input name="like" id="like" value="like" type="hidden">
+                <button type="submit" class="btn btn-primary">لایک</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="col-6">
+
+
+
+            <form method="POST" action="{% url 'blog:report' object.detail.id %}">
+                {% csrf_token %}
+                {% if object.like == True %}
+
+                {% else %}
+          <div class="form-group">
+                 <select name="report" class="form-control" id="exampleFormControlSelect1">
+                    <option name="report" id="report" value="1">محتوای مناسبی ندارن و از تصاویر نامناسب با هر گروه سنی استفاده شده</option>
+                    <option name="report" id="report" value="2">از کلمات رکیک استفاده کرده</option>
+                    <option name="report" id="report" value="3">از حرف های سیاسی استفاده شده</option>
+           </select>
+         </div>
+            <div class="form-button text-right">
+                     <button id="submit" type="submit" class="btn btn-primary mt-3">ثبت</button>
+            </div>
+            {% endif %}
+        </form>
+
+        </div>
+    </div>
+
+
+
 </div>
 </div>
 {% endblock %}
